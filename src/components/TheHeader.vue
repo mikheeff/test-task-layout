@@ -2,11 +2,19 @@
 </script>
 
 <template>
-  <div class="header">
-    header
-  </div>
+  <header class="header">
+    <button class="button">
+      Create
+    </button>
+  </header>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+  @use '@/styles/utils/_index.scss' as utils;
 
+  .header {
+    display: flex;
+    width: 100%;
+    background-color: utils.$color-white;
+  }
 </style>
