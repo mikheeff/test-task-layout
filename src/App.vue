@@ -1,11 +1,27 @@
 <script setup lang="ts">
-  import TheHeader from '@/components/TheHeader.vue';
+  import TheHeader from '@/components/TheHeader/TheHeader.vue';
+  import TheSidebar from '@/components/TheSidebar/TheSidebar.vue';
 </script>
 
 <template>
-  <TheHeader />
+  <div
+    id="layout-app"
+    class="app"
+  >
+    <QLayout
+      view="lHh Lpr lff"
+      class="app__layout"
+    >
+      <TheHeader class="app__header" />
+      <TheSidebar class="app__sidebar" />
+    </QLayout>
+  </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
+  @use '@/styles/utils/_index.scss' as utils;
 
+  .app {
+    background-color: utils.$color-gray;
+  }
 </style>

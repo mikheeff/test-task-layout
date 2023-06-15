@@ -1,5 +1,9 @@
 /* Colors */
 $color-white: #ffffff;
+$color-gray: #e5e8ea;
+$color-gray-light: #e6e9f1;
+$color-gray-dark: #a0a3bd;
+$color-midnight-navy: #2f2f44;
 
 /* Fonts */
 $font-primary: 'Segoe UI';
@@ -74,3 +78,6 @@ $text-small: (
   line-height: 12px,
   font-weight: $font-weight-regular,
 );
+
+/* Transition */
+$transition-duration: 0.2s;
