@@ -12,6 +12,16 @@ module.exports = {
   ],
   rules: {
     'vue/script-indent': ['error', 2, { baseIndent: 1 }],
+    '@typescript-eslint/member-delimiter-style': ['error', {
+      multiline: {
+        delimiter: 'semi',
+        requireLast: true,
+      },
+      singleline: {
+        delimiter: 'semi',
+        requireLast: true,
+      },
+    }],
   },
   parserOptions: {
     ecmaVersion: 'latest'

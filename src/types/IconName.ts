@@ -11,4 +11,8 @@ export enum IconName {
   INSERT_CHART = 'insert_chart',
   MENU = 'menu',
   MENU_OPEN = 'menu_open',
+  SEARCH = 'search',
+  EVENT = 'event',
+  NOTIFICATIONS = 'notifications',
+  SETTINGS = 'settings',
 }

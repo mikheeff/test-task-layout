@@ -1,3 +1,11 @@
 @use 'variables' as variables;
 
-$typography-font-family: variables.$font-primary, '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !default
+$typography-font-family: variables.$font-primary, '-apple-system', 'Helvetica Neue', Helvetica, Arial, sans-serif !default;
+
+// colors
+$primary: variables.$color-primary;
+
+// button
+$button-shadow: none;
+$button-shadow-active: none;
+$button-border-radius: 4px;

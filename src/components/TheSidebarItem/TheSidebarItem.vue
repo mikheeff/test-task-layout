@@ -47,6 +47,14 @@
     user-select: none;
     @include utils.apply-styles(utils.$text-body-semibold);
 
+    &.q-hoverable:hover {
+      ::v-deep( > .q-focus-helper) {
+        &:after {
+          opacity: 0.1;
+        }
+      }
+    }
+
     .the-sidebar-item__icon {
       color: utils.$color-gray-dark;
     }

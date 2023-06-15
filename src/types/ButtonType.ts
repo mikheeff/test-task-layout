@@ -1,0 +1,6 @@
+export enum ButtonType {
+  PRIMARY = 'PRIMARY',
+  SECONDARY = 'SECONDARY',
+  ICON_SMALL = 'ICON_SMALL',
+  OUTLINE = 'OUTLINE',
+}
