@@ -15,4 +15,6 @@ export enum IconName {
   EVENT = 'event',
   NOTIFICATIONS = 'notifications',
   SETTINGS = 'settings',
+  CHEVRON_LEFT = 'chevron_left',
+  CHEVRON_RIGHT = 'chevron_right',
 }

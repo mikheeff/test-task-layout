@@ -31,15 +31,18 @@
       />
       <div class="header-secondary-actions__actions-group">
         <AppButton
-          :type="ButtonType.ICON_SMALL"
+          :type="ButtonType.DEFAULT"
+          :is-icon="true"
           :icon-name="IconName.EVENT"
         />
         <AppButton
-          :type="ButtonType.ICON_SMALL"
+          :type="ButtonType.DEFAULT"
+          :is-icon="true"
           :icon-name="IconName.NOTIFICATIONS"
         />
         <AppButton
-          :type="ButtonType.ICON_SMALL"
+          :type="ButtonType.DEFAULT"
+          :is-icon="true"
           :icon-name="IconName.SETTINGS"
         />
       </div>

@@ -1,29 +1,42 @@
 <script setup lang="ts">
   import { ButtonType } from '@/types/ButtonType';
   import { IconName } from '@/types/IconName';
-
-  const BUTTON_CLASS_MAP: Record<ButtonType, string> = {
-    [ButtonType.PRIMARY]: 'app-button--primary',
-    [ButtonType.SECONDARY]: 'app-button--secondary',
-    [ButtonType.ICON_SMALL]: 'app-button--icon-small',
-    [ButtonType.OUTLINE]: 'app-button--outline',
-  }
+  import { computed } from 'vue';
 
   interface Props {
     type?: ButtonType;
     iconName?: IconName;
+    isIcon?: boolean;
+    isIconSmall?: boolean;
+  }
+
+  const BUTTON_CLASS_MAP: Record<ButtonType, string> = {
+    [ButtonType.DEFAULT]: '',
+    [ButtonType.PRIMARY]: 'app-button--primary',
+    [ButtonType.SECONDARY]: 'app-button--secondary',
+    [ButtonType.OUTLINE]: 'app-button--outline',
   }
 
   const props = withDefaults(defineProps<Props>(), {
     type: ButtonType.PRIMARY,
     iconName: undefined,
+    isIcon: false,
+    isIconSmall: false,
+  })
+
+  const classes = computed(() => {
+    return {
+      [BUTTON_CLASS_MAP[props.type]]: true,
+      'app-button--icon': props.isIcon,
+      'app-button--icon-small': props.isIconSmall,
+    }
   })
 </script>
 
 <template>
   <QBtn
     class="app-button"
-    :class="BUTTON_CLASS_MAP[props.type]"
+    :class="classes"
     :icon="iconName"
   >
     <template v-if="$slots.default">
@@ -38,6 +51,7 @@
   .app-button {
     @include utils.apply-styles(utils.$text-body-semibold);
     text-transform: none;
+    color: utils.$color-distinct;
 
     &.app-button--primary {
       background-color: utils.$color-primary;
@@ -51,16 +65,23 @@
 
     &.app-button--secondary {
       background-color: utils.$color-shade;
-      color: utils.$color-distinct;
     }
 
-    &.app-button--icon-small {
+    &.app-button--icon {
       padding: 6px;
-      color: utils.$color-distinct;
       min-height: 32px;
 
       ::v-deep(.q-icon) {
         font-size: 20px;
+      }
+    }
+
+    &.app-button--icon-small {
+      padding: 7px;
+      min-height: 28px;
+
+      ::v-deep(.q-icon) {
+        font-size: 14px;
       }
     }
 

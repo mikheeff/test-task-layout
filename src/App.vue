@@ -1,6 +1,7 @@
 <script setup lang="ts">
   import TheHeader from '@/components/TheHeader/TheHeader.vue';
   import TheSidebar from '@/components/TheSidebar/TheSidebar.vue';
+  import MainPage from '@/components/MainPage/MainPage.vue';
 </script>
 
 <template>
@@ -14,6 +15,9 @@
     >
       <TheHeader class="app__header" />
       <TheSidebar class="app__sidebar" />
+      <QPageContainer class="app__container">
+        <MainPage />
+      </QPageContainer>
     </QLayout>
   </div>
 </template>
@@ -22,6 +26,11 @@
   @use '@/styles/utils/_index.scss' as utils;
 
   .app {
-    background-color: utils.$color-gray;
+    background-color: utils.$color-shade;
+
+    .app__container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
   }
 </style>

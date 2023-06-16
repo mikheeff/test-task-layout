@@ -1,13 +1,11 @@
 <script setup lang="ts">
   import type { IconName } from '@/types/IconName';
+  import type { QInputProps } from 'quasar';
 
-  interface Props {
+
+  type Props = {
     iconName?: IconName;
-  }
-
-  // const props = withDefaults(defineProps<Props>(), {
-  //   hasIcon: false
-  // })
+  } & QInputProps
 
   const props = defineProps<Props>()
 </script>
@@ -15,9 +13,7 @@
 <template>
   <QInput
     class="app-input"
-    v-bind="$attrs"
-    :outlined="true"
-    :dense="true"
+    v-bind="{...$attrs, outlined: true, dense: true, modelValue: props.modelValue}"
   >
     <template
       v-if="props.iconName"

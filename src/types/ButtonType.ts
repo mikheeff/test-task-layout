@@ -1,6 +1,6 @@
 export enum ButtonType {
+  DEFAULT = 'DEFAULT',
   PRIMARY = 'PRIMARY',
   SECONDARY = 'SECONDARY',
-  ICON_SMALL = 'ICON_SMALL',
   OUTLINE = 'OUTLINE',
 }
