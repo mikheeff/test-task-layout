@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import TheHeader from '@/components/TheHeader/TheHeader.vue';
   import TheSidebar from '@/components/TheSidebar/TheSidebar.vue';
-  import MainPage from '@/components/MainPage/MainPage.vue';
+  import MainPage from '@/components/ContactPage/ContactPage.vue';
 </script>
 
 <template>

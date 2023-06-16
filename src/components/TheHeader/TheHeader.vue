@@ -53,7 +53,7 @@
         <span class="header-secondary-actions__profile-button-text">TextMagic</span>
         <QAvatar size="22px">
           <img
-            src="@/assets/icons/profile-avatar.png"
+            src="@/assets/images/profile-avatar.png"
             alt="profile-avatar"
           >
         </QAvatar>

@@ -54,7 +54,6 @@
   .breadcrumb-item {
     .breadcrumb-item__link {
       color: utils.$color-distinct;
-      text-decoration: none;
       transition-property: text-decoration, color;
       transition-duration: utils.$transition-duration;
       @include utils.apply-styles(utils.$text-body-semibold);

@@ -8,6 +8,7 @@
     iconName?: IconName;
     isIcon?: boolean;
     isIconSmall?: boolean;
+    isSmall?: boolean;
   }
 
   const BUTTON_CLASS_MAP: Record<ButtonType, string> = {
@@ -22,6 +23,7 @@
     iconName: undefined,
     isIcon: false,
     isIconSmall: false,
+    isSmall: false,
   })
 
   const classes = computed(() => {
@@ -29,6 +31,7 @@
       [BUTTON_CLASS_MAP[props.type]]: true,
       'app-button--icon': props.isIcon,
       'app-button--icon-small': props.isIconSmall,
+      'app-button--small': props.isSmall,
     }
   })
 </script>
@@ -52,10 +55,10 @@
     @include utils.apply-styles(utils.$text-body-semibold);
     text-transform: none;
     color: utils.$color-distinct;
+    padding: utils.spacing-unit(2) utils.spacing-unit(4);
 
     &.app-button--primary {
       background-color: utils.$color-primary;
-      padding: utils.spacing-unit(2) utils.spacing-unit(4);
       color: utils.$color-white;
 
       &:active {
@@ -82,6 +85,17 @@
 
       ::v-deep(.q-icon) {
         font-size: 14px;
+      }
+    }
+
+    &.app-button--small {
+      padding: 5px 12px 7px;
+      min-height: 32px;
+
+      ::v-deep(.q-icon) {
+        font-size: 14px;
+        margin-right: 6px;
+        margin-top: 2px;
       }
     }
 

@@ -18,14 +18,14 @@
     <div class="sidebar-logo the-sidebar__logo">
       <img
         class="sidebar-logo__image"
-        src="@/assets/icons/logo.svg"
+        src="@/assets/images/logo.svg"
         alt="logo"
       >
       <transition name="opacity-transition">
         <img
           v-show="!isCollapsed"
           class="sidebar-logo__text"
-          src="@/assets/icons/logo-text.svg"
+          src="@/assets/images/logo-text.svg"
           alt="logo-text"
         >
       </transition>

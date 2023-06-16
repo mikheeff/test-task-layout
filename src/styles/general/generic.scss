@@ -1,0 +1,11 @@
+@use '@/styles/utils/index.scss' as utils;
+
+body {
+  @include utils.apply-styles(utils.$text-body-regular);
+  color: utils.$color-distinct;
+}
+
+a {
+  text-decoration: none;
+  transition: color utils.$transition-duration;
+}

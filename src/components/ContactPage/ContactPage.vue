@@ -1,27 +1,25 @@
 <script setup lang="ts">
-
   import AppBreadcrumbs from '@/components/utils/AppBreadcrumbs.vue';
+  import ContactControlPanel from '@/components/ContactControlPanel/ContactControlPanel.vue';
 </script>
 
 <template>
-  <QPage class="main-page">
+  <QPage class="contact-page">
     <AppBreadcrumbs
-      class="main-page__breadcrumbs"
+      class="contact-page__breadcrumbs"
       :routes="['Contacts', 'Jennifer Crowford']"
     />
-    <p>
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit nihil praesentium molestias a adipisci, dolore vitae odit, quidem consequatur optio voluptates asperiores pariatur eos numquam rerum delectus commodi perferendis voluptate?
-    </p>
+    <ContactControlPanel />
   </QPage>
 </template>
 
 <style lang="scss" scoped>
   @use '@/styles/utils/_index.scss' as utils;
 
-  .main-page {
+  .contact-page {
     padding-top: utils.spacing-unit(2);
 
-    .main-page__breadcrumbs {
+    .contact-page__breadcrumbs {
       margin-bottom: utils.spacing-unit(2);
     }
   }

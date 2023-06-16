@@ -17,4 +17,9 @@ export enum IconName {
   SETTINGS = 'settings',
   CHEVRON_LEFT = 'chevron_left',
   CHEVRON_RIGHT = 'chevron_right',
+  NORTH_EAST = 'north_east',
+  PHONE = 'phone',
+  CHAT = 'chat',
+  EDIT = 'edit',
+  MORE_VERT = 'more_vert',
 }
