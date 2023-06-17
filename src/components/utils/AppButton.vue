@@ -8,14 +8,16 @@
     iconName?: IconName;
     isIcon?: boolean;
     isIconSmall?: boolean;
+    isIconLarge?: boolean;
     isSmall?: boolean;
   }
 
   const BUTTON_CLASS_MAP: Record<ButtonType, string> = {
-    [ButtonType.DEFAULT]: '',
+    [ButtonType.DEFAULT]: 'app-button--default',
     [ButtonType.PRIMARY]: 'app-button--primary',
     [ButtonType.SECONDARY]: 'app-button--secondary',
     [ButtonType.OUTLINE]: 'app-button--outline',
+    [ButtonType.LIGHT]: 'app-button--light',
   }
 
   const props = withDefaults(defineProps<Props>(), {
@@ -23,6 +25,7 @@
     iconName: undefined,
     isIcon: false,
     isIconSmall: false,
+    isIconLarge: false,
     isSmall: false,
   })
 
@@ -31,6 +34,7 @@
       [BUTTON_CLASS_MAP[props.type]]: true,
       'app-button--icon': props.isIcon,
       'app-button--icon-small': props.isIconSmall,
+      'app-button--icon-large': props.isIconLarge,
       'app-button--small': props.isSmall,
     }
   })
@@ -88,6 +92,15 @@
       }
     }
 
+    &.app-button--icon-large {
+      padding: 11px;
+      min-height: 40px;
+
+      ::v-deep(.q-icon) {
+        font-size: 18px;
+      }
+    }
+
     &.app-button--small {
       padding: 5px 12px 7px;
       min-height: 32px;
@@ -104,6 +117,10 @@
       background-color: transparent;
       color: utils.$color-distinct;
       border: 1px solid utils.$color-gray-light;
+    }
+
+    &.app-button--light {
+      background-color: utils.$color-white;
     }
   }
 </style>

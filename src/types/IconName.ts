@@ -22,4 +22,5 @@ export enum IconName {
   CHAT = 'chat',
   EDIT = 'edit',
   MORE_VERT = 'more_vert',
+  UNFOLD_MORE = 'unfold_more',
 }
