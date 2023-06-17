@@ -30,9 +30,9 @@
         >
       </QAvatar>
       <div class="contact-info__details">
-        <h2 class="contact-info__name">
+        <h1 class="contact-info__name">
           Jennifer Crowford
-        </h2>
+        </h1>
         <a
           class="contact-info__link"
           href="/"
@@ -147,7 +147,6 @@
     .contact-info__name {
       @include utils.apply-styles(utils.$text-page-title);
       color: utils.$color-neutral;
-      margin: 0;
     }
 
 
@@ -185,7 +184,7 @@
     .contact-panel-controls__tab-counter {
       @include utils.apply-styles(utils.$text-caption);
       margin-left: 6px;
-      color: utils.$color-gray-dark;
+      color: utils.$color-grey-dark;
     }
 
     .contact-panel-controls__buttons {

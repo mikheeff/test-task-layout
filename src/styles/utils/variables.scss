@@ -2,9 +2,15 @@
 $color-primary: #008cff;
 $color-primary-dark: #0076D6;
 $color-white: #ffffff;
-$color-gray: #e5e8ea;
-$color-gray-light: #e6e9f1;
-$color-gray-dark: #a0a3bd;
+$color-grey: #e5e8ea;
+$color-grey-light: #e6e9f1;
+$color-grey-dark: #a0a3bd;
+$color-cold-grey: #d3dae4;
+$color-cold-grey-dark: #6a7686;
+$color-cold-grey-light: #f6f7f8;
+$color-mint: #badedf;
+$color-mint-dark: #5f999b;
+$color-mint-light: #f5fafa;
 $color-shade: #f7f7fc;
 $color-input: #ebeef5;
 $color-midnight-navy: #2f2f44;
@@ -13,6 +19,12 @@ $color-neutral: #4e4b66;
 $color-warning: #ff8c00;
 $color-yellow: #f4e8be;
 $color-yellow-light: #fff7db;
+$color-purple: #c7bbdd;
+$color-purple-dark: #746197;
+$color-purple-light: #f7f5fa;
+$color-green: #bfe0b8;
+$color-green-dark: #6d9f4f;
+$color-green-light: #f8fcf7;
 
 /* Fonts */
 $font-primary: 'Segoe UI';
@@ -86,6 +98,13 @@ $text-small: (
   font-size: 10px,
   line-height: 12px,
   font-weight: $font-weight-regular,
+);
+
+$text-chip: (
+  font-size: 10px,
+  line-height: 14px,
+  font-weight: $font-weight-bold,
+  letter-spacing: 0.6px,
 );
 
 /* Transition */

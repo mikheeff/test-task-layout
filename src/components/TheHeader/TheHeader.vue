@@ -31,17 +31,14 @@
       />
       <div class="header-secondary-actions__actions-group">
         <AppButton
-          :type="ButtonType.DEFAULT"
           :is-icon="true"
           :icon-name="IconName.EVENT"
         />
         <AppButton
-          :type="ButtonType.DEFAULT"
           :is-icon="true"
           :icon-name="IconName.NOTIFICATIONS"
         />
         <AppButton
-          :type="ButtonType.DEFAULT"
           :is-icon="true"
           :icon-name="IconName.SETTINGS"
         />
@@ -72,7 +69,7 @@
     justify-content: space-between;
     height: 52px;
     background-color: utils.$color-white;
-    box-shadow: inset 0px -1px 0px utils.$color-gray-light;
+    box-shadow: inset 0px -1px 0px utils.$color-grey-light;
     padding: utils.spacing-unit(2) utils.spacing-unit(8);
     @include utils.apply-styles(utils.$text-body-regular);
   }

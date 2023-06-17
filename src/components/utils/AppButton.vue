@@ -21,7 +21,7 @@
   }
 
   const props = withDefaults(defineProps<Props>(), {
-    type: ButtonType.PRIMARY,
+    type: ButtonType.DEFAULT,
     iconName: undefined,
     isIcon: false,
     isIconSmall: false,
@@ -116,7 +116,7 @@
       padding: 6px 10px;
       background-color: transparent;
       color: utils.$color-distinct;
-      border: 1px solid utils.$color-gray-light;
+      border: 1px solid utils.$color-grey-light;
     }
 
     &.app-button--light {

@@ -6,8 +6,9 @@
   import AppInput from '@/components/utils/AppInput.vue';
   import AppButton from '@/components/utils/AppButton.vue';
   import { ButtonType } from '@/types/ButtonType';
-  import ContactPageAddNoteForm from '@/components/ContactPageAddNoteForm/ContactPageAddNoteForm.vue';
+  import ContactPageAddNoteForm from '@/components/ContactAddNoteForm/ContactAddNoteForm.vue';
   import { InputType } from '@/types/InputType';
+  import ContactDetailsPanel from '@/components/ContactDetailsPanel/ContactDetailsPanel.vue';
 
   const text = ref('')
 </script>
@@ -40,7 +41,7 @@
         <ContactPageAddNoteForm class="contact-page__add-note-form" />
       </div>
       <div class="contact-page__right-column">
-        hi
+        <ContactDetailsPanel />
       </div>
     </div>
   </QPage>

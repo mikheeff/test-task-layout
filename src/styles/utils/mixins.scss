@@ -3,3 +3,11 @@
     #{$prop}: $value;
   }
 }
+
+@mixin button-no-styles {
+  appearance: none;
+  background: none;
+  border-style: none;
+  cursor: pointer;
+  padding: 0;
+}

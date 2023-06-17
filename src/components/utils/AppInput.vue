@@ -121,7 +121,7 @@
 
       &:hover:before {
         border-color: utils.$color-shade;
-        background-color: utils.$color-gray-light;
+        background-color: utils.$color-grey-light;
       }
     }
 
@@ -134,7 +134,7 @@
       color: utils.$color-neutral;
 
       &::placeholder {
-        color: utils.$color-gray-dark;
+        color: utils.$color-grey-dark;
       }
     }
 

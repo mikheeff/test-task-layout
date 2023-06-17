@@ -41,7 +41,7 @@
     padding: 10px utils.spacing-unit(4);
     display: flex;
     align-items: center;
-    color: utils.$color-gray-dark;
+    color: utils.$color-grey-dark;
     border-radius: 4px;
     min-height: 40px;
     user-select: none;
@@ -56,7 +56,7 @@
     }
 
     .the-sidebar-item__icon {
-      color: utils.$color-gray-dark;
+      color: utils.$color-grey-dark;
     }
   }
 </style>

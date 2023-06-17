@@ -14,11 +14,11 @@
   }
 
   const selectedTab = ref(Tab.INTERNAL_NOTE)
-  const text = ref('sasfasfsasfasfsasfasfsasfasfsasfasfsasfasfsasfasfsasfasfsasfasfsasfasfsasfasfsasfasfsasfasfsasfasf')
+  const text = ref('')
 </script>
 
 <template>
-  <div class="add-note-form contact-page-add-note-form">
+  <div class="add-note-form contact-add-note-form">
     <div class="add-note-form__avatar-container">
       <QAvatar size="32px">
         <img
