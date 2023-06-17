@@ -16,7 +16,9 @@
       <TheHeader class="app__header" />
       <TheSidebar class="app__sidebar" />
       <QPageContainer class="app__container">
-        <MainPage />
+        <div class="app__page-container">
+          <MainPage />
+        </div>
       </QPageContainer>
     </QLayout>
   </div>
@@ -28,7 +30,7 @@
   .app {
     background-color: utils.$color-shade;
 
-    .app__container {
+    .app__page-container {
       max-width: 1100px;
       margin: 0 auto;
     }

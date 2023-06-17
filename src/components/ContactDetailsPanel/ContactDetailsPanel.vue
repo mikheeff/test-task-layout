@@ -5,7 +5,7 @@
   import AppContentItem from '@/components/utils/AppContentItem.vue';
   import ContactStatusChip from '@/components/ContactStatusChip/ContactStatusChip.vue';
   import { ContactStatus } from '@/types/ContactStatus';
-  import AppChip from '@/components/utils/AppChip.vue';
+  import AppLabel from '@/components/utils/AppLabel.vue';
   import AppAvatarGroup from '@/components/utils/AppAvatarGroup.vue';
 
   const links = [
@@ -95,12 +95,12 @@
           </template>
           <template #value>
             <div class="contact-details-panel__content-item-chips">
-              <AppChip>
+              <AppLabel>
                 Key account
-              </AppChip>
-              <AppChip>
+              </AppLabel>
+              <AppLabel>
                 Important
-              </AppChip>
+              </AppLabel>
             </div>
           </template>
         </AppContentItem>
@@ -110,9 +110,9 @@
           </template>
           <template #value>
             <div class="contact-details-panel__content-item-chips">
-              <AppChip>
+              <AppLabel>
                 Summer client
-              </AppChip>
+              </AppLabel>
             </div>
           </template>
         </AppContentItem>
@@ -130,12 +130,12 @@
           </template>
           <template #value>
             <div class="contact-details-panel__content-item-chips">
-              <AppChip>
+              <AppLabel>
                 account
-              </AppChip>
-              <AppChip>
+              </AppLabel>
+              <AppLabel>
                 issue
-              </AppChip>
+              </AppLabel>
             </div>
           </template>
         </AppContentItem>

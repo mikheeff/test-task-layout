@@ -27,4 +27,6 @@ export enum IconName {
   EXPAND_LESS = 'expand_less',
   KEYBOARD_DOUBLE_ARROW_UP = 'keyboard_double_arrow_up',
   ASSIGNMENT_TURNED_IN = 'assignment_turned_in',
+  KEYBOARD_ARROW_DOWN = 'keyboard_arrow_down',
+  ARROW_DROP_DOWN = 'arrow_drop_down',
 }
