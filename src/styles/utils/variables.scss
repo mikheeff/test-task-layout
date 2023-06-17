@@ -4,7 +4,7 @@ $color-primary-dark: #0076D6;
 $color-white: #ffffff;
 $color-grey: #e5e8ea;
 $color-grey-light: #e6e9f1;
-$color-grey-dark: #a0a3bd;
+$color-icon-light: #a0a3bd;
 $color-cold-grey: #d3dae4;
 $color-cold-grey-dark: #6a7686;
 $color-cold-grey-light: #f6f7f8;
@@ -25,6 +25,8 @@ $color-purple-light: #f7f5fa;
 $color-green: #bfe0b8;
 $color-green-dark: #6d9f4f;
 $color-green-light: #f8fcf7;
+$color-success: #69bc35;
+$color-attention: #ed6a61;
 
 /* Fonts */
 $font-primary: 'Segoe UI';
@@ -85,6 +87,14 @@ $text-caption: (
   font-size: 12px,
   line-height: 16px,
   font-weight: $font-weight-semibold,
+);
+
+$text-caption-bold: (
+  font-size: 12px,
+  line-height: 16px,
+  font-weight: $font-weight-bold,
+  letter-spacing: 0.8px,
+  text-transform: uppercase,
 );
 
 $text-caption-caps: (

@@ -59,12 +59,12 @@
       @include utils.apply-styles(utils.$text-body-semibold);
 
       &:hover {
-        color: utils.$color-grey-dark;
+        color: utils.$color-icon-light;
       }
     }
 
     .breadcrumb-item__icon {
-      color: utils.$color-grey-dark;
+      color: utils.$color-icon-light;
       font-size: 16px;
       margin: 0 6px;
     }

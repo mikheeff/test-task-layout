@@ -184,7 +184,7 @@
     .contact-panel-controls__tab-counter {
       @include utils.apply-styles(utils.$text-caption);
       margin-left: 6px;
-      color: utils.$color-grey-dark;
+      color: utils.$color-icon-light;
     }
 
     .contact-panel-controls__buttons {

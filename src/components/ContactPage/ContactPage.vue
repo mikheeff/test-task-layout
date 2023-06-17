@@ -9,6 +9,7 @@
   import ContactPageAddNoteForm from '@/components/ContactAddNoteForm/ContactAddNoteForm.vue';
   import { InputType } from '@/types/InputType';
   import ContactDetailsPanel from '@/components/ContactDetailsPanel/ContactDetailsPanel.vue';
+  import ActivityCard from '@/components/ActivityCard/ActivityCard.vue';
 
   const text = ref('')
 </script>
@@ -39,6 +40,15 @@
         </div>
 
         <ContactPageAddNoteForm class="contact-page__add-note-form" />
+        <div class="contact-page__activities">
+          <h3 class="contact-page__activities-title">
+            Open activities
+            <span class="contact-page__activities-title-count">4</span>
+          </h3>
+          <div class="contact-page__activities-card-list">
+            <ActivityCard />
+          </div>
+        </div>
       </div>
       <div class="contact-page__right-column">
         <ContactDetailsPanel />
@@ -83,6 +93,24 @@
 
     .contact-page__search-input {
       margin-right: utils.spacing-unit(2);
+    }
+
+    .contact-page__add-note-form {
+      margin-bottom: utils.spacing-unit(5);
+    }
+
+    .contact-page__activities-title {
+      @include utils.apply-styles(utils.$text-headline);
+      color: utils.$color-neutral;
+      display: flex;
+      align-items: center;
+      margin-bottom: utils.spacing-unit(4);
+    }
+
+    .contact-page__activities-title-count {
+      @include utils.apply-styles(utils.$text-subhead-semibold);
+      color: utils.$color-icon-light;
+      margin-left: utils.spacing-unit(2);
     }
   }
 </style>

@@ -134,7 +134,7 @@
       color: utils.$color-neutral;
 
       &::placeholder {
-        color: utils.$color-grey-dark;
+        color: utils.$color-icon-light;
       }
     }
 

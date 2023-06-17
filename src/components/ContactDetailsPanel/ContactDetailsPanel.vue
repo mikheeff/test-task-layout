@@ -3,7 +3,7 @@
   import { IconName } from '@/types/IconName';
   import AppButton from '@/components/utils/AppButton.vue';
   import AppContentItem from '@/components/utils/AppContentItem.vue';
-  import AppContactStatusChip from '@/components/utils/AppContactStatusChip.vue';
+  import ContactStatusChip from '@/components/ContactStatusChip/ContactStatusChip.vue';
   import { ContactStatus } from '@/types/ContactStatus';
   import AppChip from '@/components/utils/AppChip.vue';
   import AppAvatarGroup from '@/components/utils/AppAvatarGroup.vue';
@@ -51,7 +51,7 @@
             Status
           </template>
           <template #value>
-            <AppContactStatusChip :status="ContactStatus.LEAD" />
+            <ContactStatusChip :status="ContactStatus.LEAD" />
           </template>
         </AppContentItem>
         <AppContentItem class="contact-details-panel__content-item">
@@ -189,7 +189,7 @@
 
     .contact-details-panel__content-item-description {
       margin-left: utils.spacing-unit(1);
-      color: utils.$color-grey-dark;
+      color: utils.$color-icon-light;
     }
 
     .contact-details-panel__content-item-image {
@@ -216,7 +216,7 @@
 
     .contact-details-panel__date {
       @include utils.apply-styles(utils.$text-body-small-regular);
-      color: utils.$color-grey-dark;
+      color: utils.$color-icon-light;
     }
   }
 </style>

@@ -23,4 +23,8 @@ export enum IconName {
   EDIT = 'edit',
   MORE_VERT = 'more_vert',
   UNFOLD_MORE = 'unfold_more',
+  ARROW_DOWNWARD = 'arrow_downward',
+  EXPAND_LESS = 'expand_less',
+  KEYBOARD_DOUBLE_ARROW_UP = 'keyboard_double_arrow_up',
+  ASSIGNMENT_TURNED_IN = 'assignment_turned_in',
 }
