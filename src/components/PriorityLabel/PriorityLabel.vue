@@ -6,25 +6,25 @@
     [TaskPriority.LOW]: IconName.ARROW_DOWNWARD,
     [TaskPriority.HIGH]: IconName.EXPAND_LESS,
     [TaskPriority.URGENT]: IconName.KEYBOARD_DOUBLE_ARROW_UP,
-  }
+  };
 
   const PRIORITY_LABEL_MAP: Record<TaskPriority, string> = {
     [TaskPriority.LOW]: 'Low',
     [TaskPriority.HIGH]: 'High',
     [TaskPriority.URGENT]: 'Urgent',
-  }
+  };
 
   const PRIORITY_CLASS_MAP: Record<TaskPriority, string> = {
     [TaskPriority.LOW]: 'priority-label--low',
     [TaskPriority.HIGH]: 'priority-label--high',
     [TaskPriority.URGENT]: 'priority-label--urgent',
-  }
+  };
 
   interface Props {
     priority: TaskPriority;
   }
 
-  const props = defineProps<Props>()
+  const props = defineProps<Props>();
 </script>
 
 <template>

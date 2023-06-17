@@ -9,13 +9,13 @@
 
   const CONTACT_STATUS_CHIP_TYPE_MAP: Record<ContactStatus, AppStatusChipType> = {
     [ContactStatus.LEAD]: AppStatusChipType.GREEN
-  }
+  };
 
   const CONTACT_STATUS_TEXT: Record<ContactStatus, string> = {
     [ContactStatus.LEAD]: 'Lead'
-  }
+  };
 
-  const props = defineProps<Props>()
+  const props = defineProps<Props>();
 </script>
 
 <template>

@@ -16,18 +16,21 @@
 </script>
 
 <template>
-  <QBtn
-    class="app-button"
+  <QBtnDropdown
     v-bind="$attrs"
+    class="app-dropdown app-button"
     :class="classes"
-    :icon="iconName"
   >
-    <template v-if="$slots.default">
-      <slot />
-    </template>
-  </QBtn>
+    <slot />
+  </QBtnDropdown>
 </template>
 
 <style scoped lang="scss">
   @use '@/styles/elements/button';
+
+  .app-dropdown {
+    ::v-deep(.q-btn-dropdown__arrow) {
+      display: none;
+    }
+  }
 </style>

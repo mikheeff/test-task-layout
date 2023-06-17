@@ -12,7 +12,7 @@
   import ActivityCard from '@/components/ActivityCard/ActivityCard.vue';
   import AppChip from '@/components/utils/AppChip.vue';
 
-  const text = ref('')
+  const text = ref('');
 </script>
 
 <template>

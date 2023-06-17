@@ -4,13 +4,14 @@
   interface Props {
     isGrey?: boolean;
     isClickable?: boolean;
-    iconName: IconName;
+    iconName?: IconName;
   }
+
   const props = withDefaults(defineProps<Props>(), {
     isGrey: false,
     isClickable: true,
     iconName: undefined,
-  })
+  });
 </script>
 
 <template>

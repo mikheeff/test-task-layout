@@ -29,4 +29,7 @@ export enum IconName {
   ASSIGNMENT_TURNED_IN = 'assignment_turned_in',
   KEYBOARD_ARROW_DOWN = 'keyboard_arrow_down',
   ARROW_DROP_DOWN = 'arrow_drop_down',
+  PERSON = 'person',
+  DOMAIN = 'domain',
+  PIE_CHART = 'pie_chart',
 }

@@ -13,7 +13,7 @@
     [ActivityStatus.CLOSED]: AppStatusChipType.GREY,
     [ActivityStatus.CLICKED]: AppStatusChipType.MINT,
     [ActivityStatus.RESPONDED]: AppStatusChipType.PURPLE,
-  }
+  };
 
   const CONTACT_STATUS_TEXT_MAP: Record<ActivityStatus, string> = {
     [ActivityStatus.NEED_ATTENTION]: 'need attention',
@@ -21,9 +21,9 @@
     [ActivityStatus.CLOSED]: 'closed',
     [ActivityStatus.CLICKED]: 'clicked',
     [ActivityStatus.RESPONDED]: 'responded',
-  }
+  };
 
-  const props = defineProps<Props>()
+  const props = defineProps<Props>();
 </script>
 
 <template>

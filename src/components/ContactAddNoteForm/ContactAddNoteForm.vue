@@ -13,8 +13,8 @@
     REMINDER = 'REMINDER',
   }
 
-  const selectedTab = ref(Tab.INTERNAL_NOTE)
-  const text = ref('')
+  const selectedTab = ref(Tab.INTERNAL_NOTE);
+  const text = ref('');
 </script>
 
 <template>

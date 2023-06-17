@@ -3,7 +3,7 @@
   import TheSidebarItem from '@/components/TheSidebarItem/TheSidebarItem.vue';
   import { IconName } from '@/types/IconName';
 
-  const isCollapsed = ref(false)
+  const isCollapsed = ref(false);
 
 </script>
 

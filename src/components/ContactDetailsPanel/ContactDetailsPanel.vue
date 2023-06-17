@@ -13,7 +13,7 @@
     'src/assets/images/assign-avatar.png',
     'src/assets/images/assign-avatar.png',
     'src/assets/images/assign-avatar.png',
-  ]
+  ];
 </script>
 
 <template>

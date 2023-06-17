@@ -1,0 +1,70 @@
+@use '@/styles/utils/index' as utils;
+
+.app-button {
+  @include utils.apply-styles(utils.$text-body-semibold);
+  text-transform: none;
+  color: utils.$color-distinct;
+  padding: utils.spacing-unit(2) utils.spacing-unit(4);
+
+  &.app-button--primary {
+    background-color: utils.$color-primary;
+    color: utils.$color-white;
+
+    &:active {
+      background-color: utils.$color-primary-dark;
+    }
+  }
+
+  &.app-button--secondary {
+    background-color: utils.$color-shade;
+  }
+
+  &.app-button--icon {
+    padding: 6px;
+    min-height: 32px;
+
+    ::v-deep(.q-icon) {
+      font-size: 20px;
+    }
+  }
+
+  &.app-button--icon-small {
+    padding: 7px;
+    min-height: 28px;
+
+    ::v-deep(.q-icon) {
+      font-size: 14px;
+    }
+  }
+
+  &.app-button--icon-large {
+    padding: 11px;
+    min-height: 40px;
+
+    ::v-deep(.q-icon) {
+      font-size: 18px;
+    }
+  }
+
+  &.app-button--small {
+    padding: 5px 12px 7px;
+    min-height: 32px;
+
+    ::v-deep(.q-icon) {
+      font-size: 14px;
+      margin-right: 6px;
+      margin-top: 2px;
+    }
+  }
+
+  &.app-button--outline {
+    padding: 6px 10px;
+    background-color: transparent;
+    color: utils.$color-distinct;
+    border: 1px solid utils.$color-grey-light;
+  }
+
+  &.app-button--light {
+    background-color: utils.$color-white;
+  }
+}

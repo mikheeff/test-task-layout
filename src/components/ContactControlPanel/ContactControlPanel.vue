@@ -14,7 +14,7 @@
     FILES = 'FILES',
   }
 
-  const selectedTab = ref(Tab.ACTIVITIES)
+  const selectedTab = ref(Tab.ACTIVITIES);
 </script>
 
 <template>

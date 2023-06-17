@@ -4,7 +4,7 @@
   }
   const props = withDefaults(defineProps<Props>(), {
     isSmall: false
-  })
+  });
 </script>
 <template>
   <QTabs

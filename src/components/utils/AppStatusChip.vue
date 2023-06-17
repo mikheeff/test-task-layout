@@ -10,11 +10,11 @@
     [AppStatusChipType.GREY]: 'app-status-chip--grey',
     [AppStatusChipType.MINT]: 'app-status-chip--mint',
     [AppStatusChipType.GREEN]: 'app-status-chip--green',
-  }
+  };
 
   const props = withDefaults(defineProps<Props>(), {
     type: AppStatusChipType.GREY
-  })
+  });
 </script>
 
 <template>

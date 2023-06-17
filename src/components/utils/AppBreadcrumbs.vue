@@ -9,7 +9,7 @@
 
   const props = withDefaults(defineProps<Props>(), {
     routes: () => []
-  })
+  });
 </script>
 
 <template>

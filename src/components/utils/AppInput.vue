@@ -18,12 +18,12 @@
     [InputType.DEFAULT]: 'app-input--default',
     [InputType.LIGHT]: 'app-input--light',
     [InputType.WARNING]: 'app-input--warning',
-  }
+  };
 
   const props = withDefaults(defineProps<Props>(),  {
     inputType: InputType.DEFAULT,
     iconName: undefined,
-  })
+  });
 
   const emit = defineEmits<Emits>();
 
@@ -31,8 +31,8 @@
     return {
       [INPUT_CLASS_MAP[props.inputType]]: true,
       'app-input--large': props.isLarge
-    }
-  })
+    };
+  });
 </script>
 
 <template>

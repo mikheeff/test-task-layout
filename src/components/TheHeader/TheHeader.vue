@@ -4,18 +4,15 @@
   import { ButtonType } from '@/types/ButtonType';
   import AppInput from '@/components/utils/AppInput.vue';
   import { IconName } from '@/types/IconName';
+  import CreateActivityDropdown from '@/components/CreateActivityDropdown/CreateActivityDropdown.vue';
 
-  const text = ref('')
+  const text = ref('');
 </script>
 
 <template>
   <QHeader class="the-header">
     <div class="header-primary-actions the-header__primary-actions">
-      <AppButton
-        class="header-primary-actions__button"
-        label="Create"
-        :type="ButtonType.PRIMARY"
-      />
+      <CreateActivityDropdown class="header-primary-actions__button" />
       <AppInput
         v-model="text"
         class="header-primary-actions__search-input"
