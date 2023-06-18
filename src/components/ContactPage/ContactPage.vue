@@ -59,7 +59,9 @@
                 <div class="contact-page__activities-section-header">
                   <h3 class="contact-page__activities-title">
                     Open activities
-                    <span class="contact-page__activities-title-count">4</span>
+                    <span class="contact-page__activities-title-count">
+                      {{ rootStore.openActivities.length }}
+                    </span>
                   </h3>
 
                   <AppButton
@@ -86,7 +88,9 @@
                 <div class="contact-page__activities-section-header">
                   <h3 class="contact-page__activities-title">
                     Past activities
-                    <span class="contact-page__activities-title-count">46</span>
+                    <span class="contact-page__activities-title-count">
+                      {{ rootStore.pastActivities.length }}
+                    </span>
                   </h3>
                   <AppButton
                     :icon-name="IconName.KEYBOARD_ARROW_DOWN"
