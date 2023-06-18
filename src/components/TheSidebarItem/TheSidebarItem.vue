@@ -1,5 +1,6 @@
 <script setup lang="ts">
   import type { IconName } from '@/types/IconName';
+  import AppTag from '@/components/utils/AppTag.vue';
 
   interface Props {
     isActive?: boolean;
@@ -26,6 +27,12 @@
         :name="iconName"
         size="20px"
       />
+      <AppTag
+        v-if="$slots.counter"
+        class="the-sidebar-item__icon-counter"
+      >
+        <slot name="counter" />
+      </AppTag>
     </QItemSection>
 
     <QItemSection>
@@ -33,10 +40,15 @@
     </QItemSection>
 
     <QItemSection
-      v-if="$slots['side-content']"
+      v-if="$slots.counter"
       :side="true"
     >
-      <slot name="side-content" />
+      <AppTag
+        v-if="$slots.counter"
+        class="the-sidebar-item__counter"
+      >
+        <slot name="counter" />
+      </AppTag>
     </QItemSection>
   </QItem>
 </template>
@@ -71,8 +83,18 @@
       }
     }
 
+    .the-sidebar-item__section {
+      position: relative;
+    }
+
     .the-sidebar-item__icon {
       color: utils.$color-icon-light;
+    }
+
+    .the-sidebar-item__icon-counter {
+      position: absolute;
+      top: -7px;
+      right: -7px;
     }
   }
 </style>

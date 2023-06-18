@@ -15,6 +15,7 @@
     :mini="isCollapsed"
     :width="200"
     :mini-width="68"
+    :class="{ 'the-sidebar--expanded': !isCollapsed }"
   >
     <div class="sidebar-logo the-sidebar__logo">
       <img
@@ -44,8 +45,8 @@
           :icon-name="IconName.FORUM"
         >
           Messenger
-          <template #side-content>
-            <span class="sidebar-menu__item-counter">{{ rootStore.messagesAmount }}</span>
+          <template #counter>
+            {{ rootStore.messagesAmount }}
           </template>
         </TheSidebarItem>
         <TheSidebarItem
@@ -113,11 +114,17 @@
 <style lang="scss" scoped>
   @use '@/styles/utils/index' as utils;
 
-  :deep(.the-sidebar) {
+  ::v-deep(.the-sidebar) {
     display: flex;
     flex-direction: column;
     overflow: visible;
     background-color: utils.$color-midnight-navy;
+
+    &.the-sidebar--expanded {
+      .the-sidebar-item__icon-counter {
+        display: none;
+      }
+    }
   }
 
   .the-sidebar__menu {
@@ -137,14 +144,5 @@
     .sidebar-logo__image {
       margin-right: utils.spacing-unit(2);
     }
-  }
-
-  .sidebar-menu__item-counter {
-    @include utils.apply-styles(utils.$text-caption);
-    color: utils.$color-white;
-    padding: 0 6px;
-    background-color: utils.$color-attention;
-    border-radius: 12px;
-    display: flex;
   }
 </style>
