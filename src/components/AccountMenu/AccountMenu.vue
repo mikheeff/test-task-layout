@@ -6,6 +6,7 @@
   import AppList from '@/components/utils/AppList.vue';
   import { ButtonType } from '@/types/ButtonType';
   import { useRootStore } from '@/stores/RootStore';
+  import AccountStatusIndicator from '@/components/AccountStatusIndicator/AccountStatusIndicator.vue';
 
   const rootStore = useRootStore();
 </script>
@@ -34,6 +35,9 @@
             :src="rootStore.userProfile.imageUrl"
             alt="profile-avatar"
           >
+          <span class="menu-header__avatar--indicator-wrapper">
+            <AccountStatusIndicator class="menu-header__avatar--indicator" />
+          </span>
         </QAvatar>
         <div class="menu-header__name">
           {{ rootStore.profileFullName }}
@@ -225,16 +229,12 @@
   .menu-header {
     background: center / cover url('@/assets/images/profile-background.png') no-repeat;
 
-    .menu-header__avatar:before {
-      content: '';
+    .menu-header__avatar--indicator-wrapper {
+      border: 2px solid utils.$color-pink;
       position: absolute;
       bottom: 0;
       right: 0;
       border-radius: 50%;
-      width: 16px;
-      height: 16px;
-      border: 2px solid utils.$color-pink;
-      background-color: utils.$color-success;
     }
 
     .menu-header__name {

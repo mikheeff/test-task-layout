@@ -4,18 +4,8 @@
   import AppTabs from '@/components/utils/AppTabs.vue';
   import AppTab from '@/components/utils/AppTab.vue';
   import AppButton from '@/components/utils/AppButton.vue';
-
-  import { ref } from 'vue';
   import { useRootStore } from '@/stores/RootStore';
-
-  enum Tab {
-    ACTIVITIES = 'ACTIVITIES',
-    LOGS = 'LOGS',
-    VISITS = 'VISITS',
-    FILES = 'FILES',
-  }
-
-  const selectedTab = ref(Tab.ACTIVITIES);
+  import { ContactDetailsTab } from '@/types/ContactDetailsTab';
 
   const rootStore = useRootStore();
 </script>
@@ -51,30 +41,30 @@
     </div>
     <div class="contact-panel-controls contact-control-panel__footer">
       <AppTabs
-        v-model="selectedTab"
+        v-model="rootStore.contactDetailsSelectedTab"
         class="contact-panel-controls__tabs"
       >
         <AppTab
           class="contact-panel-controls__tab"
-          :name="Tab.ACTIVITIES"
+          :name="ContactDetailsTab.ACTIVITIES"
         >
           Activities
         </AppTab>
         <AppTab
           class="contact-panel-controls__tab"
-          :name="Tab.LOGS"
+          :name="ContactDetailsTab.LOGS"
         >
           Logs
         </AppTab>
         <AppTab
           class="contact-panel-controls__tab"
-          :name="Tab.VISITS"
+          :name="ContactDetailsTab.VISITS"
         >
           Visits
         </AppTab>
         <AppTab
           class="contact-panel-controls__tab contact-panel-controls__tab--files"
-          :name="Tab.FILES"
+          :name="ContactDetailsTab.FILES"
         >
           <span class="contact-panel-controls__tab-content">
             Files

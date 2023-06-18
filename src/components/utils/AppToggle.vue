@@ -12,6 +12,13 @@
   $toggle-height: 20px;
 
   .app-toggle {
+    transition: opacity utils.$transition-duration;
+
+    &:hover,
+    &:focus {
+      opacity: 0.75;
+    }
+
     ::v-deep(.q-toggle__inner) {
       padding: 0;
       transition: color utils.$transition-duration;

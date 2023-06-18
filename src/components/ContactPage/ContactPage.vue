@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { computed, ref } from 'vue';
+  import { ref } from 'vue';
   import AppBreadcrumbs from '@/components/utils/AppBreadcrumbs.vue';
   import ContactControlPanel from '@/components/ContactControlPanel/ContactControlPanel.vue';
   import { IconName } from '@/types/IconName';
@@ -12,6 +12,7 @@
   import ActivityCard from '@/components/ActivityCard/ActivityCard.vue';
   import { useRootStore } from '@/stores/RootStore';
   import ContactActivitiesControls from '@/components/ContactActivitiesControls/ContactActivitiesControls.vue';
+  import { ContactDetailsTab } from '@/types/ContactDetailsTab';
 
   const text = ref('');
 
@@ -44,55 +45,87 @@
         </div>
 
         <ContactPageAddNoteForm class="contact-page__add-note-form" />
-        <div class="contact-page__activities">
-          <div class="contact-page__activities-section contact-page__activities-section--open">
-            <div class="contact-page__activities-section-header">
-              <h3 class="contact-page__activities-title">
-                Open activities
-                <span class="contact-page__activities-title-count">4</span>
-              </h3>
+        <div class="contact-page__content">
+          <transition
+            name="opacity-transition"
+            mode="out-in"
+          >
+            <div
+              v-if="rootStore.contactDetailsSelectedTab === ContactDetailsTab.ACTIVITIES"
+              key="activities"
+              class="contact-page__activities"
+            >
+              <div class="contact-page__activities-section contact-page__activities-section--open">
+                <div class="contact-page__activities-section-header">
+                  <h3 class="contact-page__activities-title">
+                    Open activities
+                    <span class="contact-page__activities-title-count">4</span>
+                  </h3>
 
-              <AppButton
-                :icon-name="IconName.KEYBOARD_ARROW_DOWN"
-                class="contact-page__activities-toggle-button"
-                :is-icon="true"
-              />
+                  <AppButton
+                    :icon-name="IconName.KEYBOARD_ARROW_DOWN"
+                    class="contact-page__activities-toggle-button"
+                    :is-icon="true"
+                  />
+                </div>
+                <div
+                  v-if="rootStore.openActivities.length"
+                  class="contact-page__activities-card-list"
+                >
+                  <ActivityCard
+                    v-for="activity in rootStore.openActivities"
+                    :key="activity.id"
+                    :activity="activity"
+                  />
+                </div>
+              </div>
+              <div
+                v-if="rootStore.pastActivities.length"
+                class="contact-page__activities-section contact-page__activities-section--past"
+              >
+                <div class="contact-page__activities-section-header">
+                  <h3 class="contact-page__activities-title">
+                    Past activities
+                    <span class="contact-page__activities-title-count">46</span>
+                  </h3>
+                  <AppButton
+                    :icon-name="IconName.KEYBOARD_ARROW_DOWN"
+                    class="contact-page__activities-toggle-button"
+                    :is-icon="true"
+                  />
+                </div>
+                <ContactActivitiesControls class="contact-page__activities-section-controls" />
+                <div class="contact-page__activities-card-list">
+                  <ActivityCard
+                    v-for="activity in rootStore.pastActivities"
+                    :key="activity.id"
+                    :activity="activity"
+                  />
+                </div>
+              </div>
             </div>
             <div
-              v-if="rootStore.openActivities.length"
-              class="contact-page__activities-card-list"
+              v-else-if="rootStore.contactDetailsSelectedTab === ContactDetailsTab.LOGS"
+              key="logs"
+              class="contact-page__logs"
             >
-              <ActivityCard
-                v-for="activity in rootStore.openActivities"
-                :key="activity.id"
-                :activity="activity"
-              />
+              Logs
             </div>
-          </div>
-          <div
-            v-if="rootStore.pastActivities.length"
-            class="contact-page__activities-section contact-page__activities-section--past"
-          >
-            <div class="contact-page__activities-section-header">
-              <h3 class="contact-page__activities-title">
-                Past activities
-                <span class="contact-page__activities-title-count">46</span>
-              </h3>
-              <AppButton
-                :icon-name="IconName.KEYBOARD_ARROW_DOWN"
-                class="contact-page__activities-toggle-button"
-                :is-icon="true"
-              />
+            <div
+              v-else-if="rootStore.contactDetailsSelectedTab === ContactDetailsTab.VISITS"
+              key="visits"
+              class="contact-page__visits"
+            >
+              Visits
             </div>
-            <ContactActivitiesControls class="contact-page__activities-section-controls" />
-            <div class="contact-page__activities-card-list">
-              <ActivityCard
-                v-for="activity in rootStore.pastActivities"
-                :key="activity.id"
-                :activity="activity"
-              />
+            <div
+              v-else-if="rootStore.contactDetailsSelectedTab === ContactDetailsTab.FILES"
+              key="files"
+              class="contact-page__files"
+            >
+              Files
             </div>
-          </div>
+          </transition>
         </div>
       </div>
       <div class="contact-page__right-column">
@@ -179,7 +212,16 @@
       display: flex;
       flex-direction: column;
       gap: utils.spacing-unit(2);
+    }
 
+    .contact-page__logs,
+    .contact-page__visits,
+    .contact-page__files {
+      display: flex;
+      padding: utils.spacing-unit(10) utils.spacing-unit(20);
+      justify-content: center;
+      background-color: utils.$color-white;
+      border-radius: 4px;
     }
   }
 </style>

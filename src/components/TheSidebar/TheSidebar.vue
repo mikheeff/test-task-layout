@@ -2,9 +2,10 @@
   import { ref } from 'vue';
   import TheSidebarItem from '@/components/TheSidebarItem/TheSidebarItem.vue';
   import { IconName } from '@/types/IconName';
+  import { useRootStore } from '@/stores/RootStore';
 
   const isCollapsed = ref(false);
-
+  const rootStore = useRootStore();
 </script>
 
 <template>
@@ -32,34 +33,68 @@
     </div>
     <QList class="sidebar-menu the-sidebar__menu">
       <div class="sidebar-menu__top">
-        <TheSidebarItem :icon-name="IconName.HOME">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :icon-name="IconName.HOME"
+        >
           Home
         </TheSidebarItem>
-        <TheSidebarItem :icon-name="IconName.FORUM">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :icon-name="IconName.FORUM"
+        >
           Messenger
+          <template #side-content>
+            <span class="sidebar-menu__item-counter">{{ rootStore.messagesAmount }}</span>
+          </template>
         </TheSidebarItem>
-        <TheSidebarItem :icon-name="IconName.MAIL">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :icon-name="IconName.MAIL"
+        >
           Tickets
         </TheSidebarItem>
-        <TheSidebarItem :icon-name="IconName.CAMPAIGN">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :icon-name="IconName.CAMPAIGN"
+        >
           Campaigns
         </TheSidebarItem>
-        <TheSidebarItem :icon-name="IconName.GROUP">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :is-active="true"
+          :icon-name="IconName.GROUP"
+        >
           Contacts
         </TheSidebarItem>
-        <TheSidebarItem :icon-name="IconName.TASK">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :icon-name="IconName.TASK"
+        >
           Tasks
         </TheSidebarItem>
-        <TheSidebarItem :icon-name="IconName.PAID">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :icon-name="IconName.PAID"
+        >
           Deals
         </TheSidebarItem>
-        <TheSidebarItem :icon-name="IconName.FOLDER">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :icon-name="IconName.FOLDER"
+        >
           Files
         </TheSidebarItem>
-        <TheSidebarItem :icon-name="IconName.SLOW_MOTION_VIDEO">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :icon-name="IconName.SLOW_MOTION_VIDEO"
+        >
           Automations
         </TheSidebarItem>
-        <TheSidebarItem :icon-name="IconName.INSERT_CHART">
+        <TheSidebarItem
+          class="sidebar-menu__item"
+          :icon-name="IconName.INSERT_CHART"
+        >
           Reports
         </TheSidebarItem>
       </div>
@@ -92,6 +127,7 @@
     justify-content: space-between;
     flex-grow: 1;
   }
+
   .sidebar-logo {
     display: flex;
     align-items: center;
@@ -101,5 +137,14 @@
     .sidebar-logo__image {
       margin-right: utils.spacing-unit(2);
     }
+  }
+
+  .sidebar-menu__item-counter {
+    @include utils.apply-styles(utils.$text-caption);
+    color: utils.$color-white;
+    padding: 0 6px;
+    background-color: utils.$color-attention;
+    border-radius: 12px;
+    display: flex;
   }
 </style>

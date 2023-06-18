@@ -31,6 +31,13 @@
     <QItemSection>
       <slot />
     </QItemSection>
+
+    <QItemSection
+      v-if="$slots['side-content']"
+      :side="true"
+    >
+      <slot name="side-content" />
+    </QItemSection>
   </QItem>
 </template>
 
@@ -46,6 +53,15 @@
     min-height: 40px;
     user-select: none;
     @include utils.apply-styles(utils.$text-body-semibold);
+
+    &.q-item--active {
+      background: rgba(255, 255, 255, 0.1);
+      color: utils.$color-white;
+
+      .the-sidebar-item__icon {
+        color: utils.$color-white;
+      }
+    }
 
     &.q-hoverable:hover {
       ::v-deep( > .q-focus-helper) {
