@@ -5,11 +5,15 @@ import type { Activity } from '@/types/Activity';
 import { MOCKED_ACTIVITIES_LIST } from '@/mocks/activities';
 import type { UserProfile } from '@/types/UserProfile';
 import { MOCKED_USER_PROFILE } from '@/mocks/user-profile';
+import { AccountStatus } from '@/types/AccountStatus';
 
 interface RootStore {
   contactDetails: ContactDetails;
   activities: Activity[];
   userProfile: UserProfile;
+  accountStatus: AccountStatus;
+  isAcceptCalls: boolean;
+  isAcceptChats: boolean;
 }
 
 export const useRootStore = defineStore('root', {
@@ -17,6 +21,9 @@ export const useRootStore = defineStore('root', {
     contactDetails: MOCKED_CONTACT_DETAILS,
     activities: MOCKED_ACTIVITIES_LIST,
     userProfile: MOCKED_USER_PROFILE,
+    accountStatus: AccountStatus.ONLINE,
+    isAcceptCalls: true,
+    isAcceptChats: true,
   }),
   getters: {
     contactFullName(): string {

@@ -11,7 +11,7 @@
   import ContactDetailsPanel from '@/components/ContactDetailsPanel/ContactDetailsPanel.vue';
   import ActivityCard from '@/components/ActivityCard/ActivityCard.vue';
   import { useRootStore } from '@/stores/RootStore';
-  import ContactActivitiesControls from '@/components/ContactActivitiesControls.vue';
+  import ContactActivitiesControls from '@/components/ContactActivitiesControls/ContactActivitiesControls.vue';
 
   const text = ref('');
 

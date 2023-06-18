@@ -17,7 +17,7 @@
 <template>
   <QChip
     class="app-chip"
-    :class="{'app-chip--grey': props.isGrey}"
+    :class="{ 'app-chip--grey': props.isGrey }"
     :clickable="props.isClickable"
     :icon="iconName"
   >

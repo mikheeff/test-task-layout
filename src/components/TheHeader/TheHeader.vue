@@ -6,6 +6,7 @@
   import { IconName } from '@/types/IconName';
   import CreateActivityDropdown from '@/components/CreateActivityDropdown/CreateActivityDropdown.vue';
   import AccountMenu from '@/components/AccountMenu/AccountMenu.vue';
+  import AccountStatusBar from '@/components/AccountStatusBar/AccountStatusBar.vue';
 
   const text = ref('');
 </script>
@@ -22,11 +23,7 @@
       />
     </div>
     <div class="header-secondary-actions the-header__secondary-actions">
-      <AppButton
-        class="header-secondary-actions__status-button"
-        label="Online"
-        :type="ButtonType.SECONDARY"
-      />
+      <AccountStatusBar class="header-secondary-actions__status-bar" />
       <div class="header-secondary-actions__actions-group">
         <AppButton
           :is-icon="true"
@@ -77,7 +74,7 @@
   .header-secondary-actions {
     display: flex;
 
-    .header-secondary-actions__status-button {
+    .header-secondary-actions__status-bar {
       margin-right: 14px;
     }
 

@@ -17,9 +17,9 @@
     <AppList class="create-activity-dropdown__list">
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.CHAT" />
         </AppMenuItemSection>
         <AppMenuItemSection>
@@ -29,9 +29,9 @@
 
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.MAIL" />
         </AppMenuItemSection>
         <AppMenuItemSection>
@@ -41,9 +41,9 @@
 
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.PHONE" />
         </AppMenuItemSection>
         <AppMenuItemSection>
@@ -55,9 +55,9 @@
 
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.CAMPAIGN" />
         </AppMenuItemSection>
         <AppMenuItemSection>
@@ -67,9 +67,9 @@
 
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.ASSIGNMENT_TURNED_IN" />
         </AppMenuItemSection>
         <AppMenuItemSection>
@@ -79,9 +79,9 @@
 
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.PAID" />
         </AppMenuItemSection>
         <AppMenuItemSection>
@@ -93,9 +93,9 @@
 
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.PERSON" />
         </AppMenuItemSection>
         <AppMenuItemSection>
@@ -105,9 +105,9 @@
 
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.DOMAIN" />
         </AppMenuItemSection>
         <AppMenuItemSection>
@@ -117,9 +117,9 @@
 
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.GROUP" />
         </AppMenuItemSection>
         <AppMenuItemSection>
@@ -129,9 +129,9 @@
 
       <AppMenuItem
         v-close-popup
-        clickable
+        :clickable="true"
       >
-        <AppMenuItemSection avatar>
+        <AppMenuItemSection :avatar="true">
           <QIcon :name="IconName.PIE_CHART" />
         </AppMenuItemSection>
         <AppMenuItemSection>

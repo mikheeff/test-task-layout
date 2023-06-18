@@ -65,7 +65,7 @@
         </h4>
         <span
           class="card-content__date"
-          :class="{'card-content__date--past': isPastActivity, 'card-content__date--upcoming': isUpcomingActivity}"
+          :class="{ 'card-content__date--past': isPastActivity, 'card-content__date--upcoming': isUpcomingActivity }"
         >
           {{ date }}
         </span>

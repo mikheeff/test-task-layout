@@ -14,6 +14,7 @@ module.exports = {
   rules: {
     "semi": [2, "always"],
     'vue/script-indent': ['error', 2, { baseIndent: 1 }],
+    'vue/object-curly-spacing': ['error', 'always'],
     '@typescript-eslint/member-delimiter-style': ['error', {
       multiline: {
         delimiter: 'semi',

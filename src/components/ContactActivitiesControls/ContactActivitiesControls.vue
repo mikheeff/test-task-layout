@@ -57,7 +57,7 @@
 </template>
 
 <style scoped lang="scss">
-  @use '@/styles/utils/_index.scss' as utils;
+  @use '../../styles/utils/index' as utils;
 
   .contact-activities-controls {
     display: flex;
@@ -67,6 +67,15 @@
     .contact-activities-controls__filters {
       display: flex;
       gap: utils.spacing-unit(1);
+    }
+
+    .contact-activities-controls__filter {
+      &:focus {
+        ::v-deep(.q-focus-helper) {
+          background: currentColor;
+          opacity: 0.15;
+        }
+      }
     }
 
     .contact-activities-controls__filter-count {
