@@ -118,7 +118,7 @@
     display: flex;
     flex-direction: column;
     overflow: visible;
-    background-color: utils.$color-midnight-navy;
+    background: center / cover url('@/assets/images/menu-background.png') no-repeat;
 
     &.the-sidebar--expanded {
       .the-sidebar-item__icon-counter {
