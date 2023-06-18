@@ -3,7 +3,7 @@ import { ActivityType } from '@/types/ActivityType';
 import { ActivityStatus } from '@/types/ActivityStatus';
 import { TaskPriority } from '@/types/TaskPriority';
 
-export const ACTIVITIES_LIST: Activity[] = [
+export const MOCKED_ACTIVITIES_LIST: Activity[] = [
   {
     id: '1',
     type: ActivityType.TASK,

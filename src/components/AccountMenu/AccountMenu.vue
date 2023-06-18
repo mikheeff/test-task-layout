@@ -5,6 +5,9 @@
   import AppMenuItemSection from '@/components/utils/AppMenuItemSection.vue';
   import AppList from '@/components/utils/AppList.vue';
   import { ButtonType } from '@/types/ButtonType';
+  import { useRootStore } from '@/stores/RootStore';
+
+  const rootStore = useRootStore();
 </script>
 
 <template>
@@ -16,7 +19,7 @@
       <span class="account-menu__button-text">TextMagic</span>
       <QAvatar size="22px">
         <img
-          src="@/assets/images/profile-avatar.png"
+          :src="rootStore.userProfile.imageUrl"
           alt="profile-avatar"
         >
       </QAvatar>
@@ -28,15 +31,15 @@
           size="52px"
         >
           <img
-            src="@/assets/images/profile-avatar.png"
+            :src="rootStore.userProfile.imageUrl"
             alt="profile-avatar"
           >
         </QAvatar>
         <div class="menu-header__name">
-          Robert Overrit
+          {{ rootStore.profileFullName }}
         </div>
         <div class="menu-header__email">
-          robert.overrit@textmagic.com
+          {{ rootStore.userProfile.email }}
         </div>
         <button class="menu-header__manage-account-button">
           Manage account
@@ -64,7 +67,7 @@
             </AppMenuItemSection>
             <AppMenuItemSection class="text-magic-list-item__section">
               <div class="text-magic-list-item__section-name">
-                Text message
+                TextMagic
               </div>
               <div class="text-magic-list-item__section-description">
                 textmagic.touchpoint.com
@@ -236,6 +239,7 @@
 
     .menu-header__name {
       @include utils.apply-styles(utils.$text-subhead-semibold);
+      color: utils.$color-neutral;
     }
 
     .menu-header__email {

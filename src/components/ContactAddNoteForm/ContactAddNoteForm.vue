@@ -4,6 +4,7 @@
   import { InputType } from '@/types/InputType';
   import AppTabs from '@/components/utils/AppTabs.vue';
   import AppTab from '@/components/utils/AppTab.vue';
+  import { useRootStore } from '@/stores/RootStore';
 
   enum Tab {
     INTERNAL_NOTE = 'INTERNAL_NOTE',
@@ -13,8 +14,11 @@
     REMINDER = 'REMINDER',
   }
 
+  const rootStore = useRootStore();
+
   const selectedTab = ref(Tab.INTERNAL_NOTE);
   const text = ref('');
+
 </script>
 
 <template>
@@ -22,7 +26,7 @@
     <div class="add-note-form__avatar-container">
       <QAvatar size="32px">
         <img
-          src="@/assets/images/profile-avatar.png"
+          :src="rootStore.userProfile.imageUrl"
           alt="profile-avatar"
         >
       </QAvatar>

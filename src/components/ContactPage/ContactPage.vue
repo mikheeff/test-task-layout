@@ -10,7 +10,6 @@
   import { InputType } from '@/types/InputType';
   import ContactDetailsPanel from '@/components/ContactDetailsPanel/ContactDetailsPanel.vue';
   import ActivityCard from '@/components/ActivityCard/ActivityCard.vue';
-  import AppChip from '@/components/utils/AppChip.vue';
   import { useRootStore } from '@/stores/RootStore';
   import ContactActivitiesControls from '@/components/ContactActivitiesControls.vue';
 
@@ -71,7 +70,6 @@
             </div>
           </div>
           <div
-
             v-if="rootStore.pastActivities.length"
             class="contact-page__activities-section contact-page__activities-section--past"
           >
