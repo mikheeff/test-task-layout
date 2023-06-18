@@ -12,7 +12,8 @@
     class="create-activity-dropdown"
     label="Create"
     :type="ButtonType.PRIMARY"
-    menu-self="top middle"
+    menu-self="top left"
+    menu-anchor="bottom left"
   >
     <AppList class="create-activity-dropdown__list">
       <AppMenuItem

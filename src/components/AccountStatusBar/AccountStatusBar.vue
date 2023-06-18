@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
   import { ButtonType } from '@/types/ButtonType';
   import AppDropdown from '@/components/utils/AppDropdown.vue';
   import AppList from '@/components/utils/AppList.vue';
@@ -28,7 +27,8 @@
     class="account-status-bar"
     :class="{ 'account-status-bar--opened': isOpened }"
     :type="ButtonType.SECONDARY"
-    menu-self="top middle"
+    menu-self="top left"
+    menu-anchor="bottom left"
     @before-show="isOpened = true"
     @before-hide="isOpened = false"
   >
