@@ -4,18 +4,11 @@
   import AppButton from '@/components/utils/AppButton.vue';
   import AppContentItem from '@/components/utils/AppContentItem.vue';
   import ContactStatusChip from '@/components/ContactStatusChip/ContactStatusChip.vue';
-  import { ContactStatus } from '@/types/ContactStatus';
   import AppLabel from '@/components/utils/AppLabel.vue';
   import AppAvatarGroup from '@/components/utils/AppAvatarGroup.vue';
   import { useRootStore } from '@/stores/RootStore';
   import { ContactDetailsType } from '@/types/ContactDetailsType';
-
-  const links = [
-    'src/assets/images/assign-avatar.png',
-    'src/assets/images/assign-avatar.png',
-    'src/assets/images/assign-avatar.png',
-    'src/assets/images/assign-avatar.png',
-  ];
+  import { Utils } from '@/classes/utils';
 
   const CONTACT_DETAILS_TYPE_LABEL_MAP: Record<ContactDetailsType, string> = {
     [ContactDetailsType.HOME]: 'Home',
@@ -23,6 +16,9 @@
   };
 
   const rootStore = useRootStore();
+
+  const createdAt = Utils.convertISODate(rootStore.contactDetails.createdAt);
+  const updatedAt = Utils.convertISODate(rootStore.contactDetails.updatedAt);
 </script>
 
 <template>
@@ -171,10 +167,10 @@
       </div>
       <div class="contact-details-panel__content-footer">
         <div class="contact-details-panel__date">
-          Created: {{ rootStore.contactDetails.createdAt }}
+          Created: {{ createdAt }}
         </div>
         <div class="contact-details-panel__date">
-          Updated: {{ rootStore.contactDetails.updatedAt }}
+          Updated: {{ updatedAt }}
         </div>
       </div>
     </div>

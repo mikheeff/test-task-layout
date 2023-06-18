@@ -12,6 +12,7 @@
   import ActivityCard from '@/components/ActivityCard/ActivityCard.vue';
   import AppChip from '@/components/utils/AppChip.vue';
   import { useRootStore } from '@/stores/RootStore';
+  import ContactActivitiesControls from '@/components/ContactActivitiesControls.vue';
 
   const text = ref('');
 
@@ -25,7 +26,7 @@
       :routes="['Contacts', rootStore.contactFullName]"
     />
     <ContactControlPanel class="contact-page__contact-control-panel" />
-    <div class="contact-page-columns">
+    <div class="contact-page__columns">
       <div class="contact-page__left-column">
         <div class="contact-page__contact-search">
           <AppInput
@@ -58,11 +59,22 @@
                 :is-icon="true"
               />
             </div>
-            <div class="contact-page__activities-card-list">
-              <ActivityCard />
+            <div
+              v-if="rootStore.openActivities.length"
+              class="contact-page__activities-card-list"
+            >
+              <ActivityCard
+                v-for="activity in rootStore.openActivities"
+                :key="activity.id"
+                :activity="activity"
+              />
             </div>
           </div>
-          <div class="contact-page__activities-section contact-page__activities-section--past">
+          <div
+
+            v-if="rootStore.pastActivities.length"
+            class="contact-page__activities-section contact-page__activities-section--past"
+          >
             <div class="contact-page__activities-section-header">
               <h3 class="contact-page__activities-title">
                 Past activities
@@ -74,57 +86,13 @@
                 :is-icon="true"
               />
             </div>
-            <div class="activities-section-controls contact-page__activities-section-controls">
-              <div class="activities-section-controls__filters">
-                <AppChip class="activities-section-controls__filter">
-                  All
-                  <span class="activities-section-controls__filter-count">
-                    64
-                  </span>
-                </AppChip>
-                <AppChip class="activities-section-controls__filter">
-                  Deals
-                  <span class="activities-section-controls__filter-count">
-                    10
-                  </span>
-                </AppChip>
-                <AppChip class="activities-section-controls__filter">
-                  Tasks
-                  <span class="activities-section-controls__filter-count">
-                    12
-                  </span>
-                </AppChip>
-                <AppChip class="activities-section-controls__filter">
-                  Calls
-                  <span class="activities-section-controls__filter-count">
-                    3
-                  </span>
-                </AppChip>
-                <AppChip class="activities-section-controls__filter">
-                  Emails
-                  <span class="activities-section-controls__filter-count">
-                    24
-                  </span>
-                </AppChip>
-                <AppChip
-                  class="activities-section-controls__filter"
-                  :is-grey="true"
-                  :icon-name="IconName.MORE_VERT"
-                >
-                  More
-                </AppChip>
-              </div>
-              <button class="activities-section-controls__sort-button">
-                Newest first
-                <QIcon
-                  class="activities-section-controls__sort-button-icon"
-                  size="16px"
-                  :name="IconName.ARROW_DROP_DOWN"
-                />
-              </button>
-            </div>
+            <ContactActivitiesControls class="contact-page__activities-section-controls" />
             <div class="contact-page__activities-card-list">
-              <ActivityCard />
+              <ActivityCard
+                v-for="activity in rootStore.pastActivities"
+                :key="activity.id"
+                :activity="activity"
+              />
             </div>
           </div>
         </div>
@@ -140,7 +108,7 @@
   @use '@/styles/utils/_index.scss' as utils;
 
   .contact-page {
-    padding-top: utils.spacing-unit(2);
+    padding: utils.spacing-unit(2) 0 utils.spacing-unit(15);
 
     .contact-page__breadcrumbs {
       margin-bottom: utils.spacing-unit(2);
@@ -150,7 +118,7 @@
       margin-bottom: utils.spacing-unit(5);
     }
 
-    .contact-page-columns {
+    .contact-page__columns {
       display: flex;
     }
 
@@ -208,38 +176,12 @@
       color: utils.$color-icon-light;
       margin-left: utils.spacing-unit(2);
     }
-  }
 
-  .activities-section-controls {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: utils.spacing-unit(2);
-
-    .activities-section-controls__filters {
+    .contact-page__activities-card-list {
       display: flex;
-      gap: utils.spacing-unit(1);
-    }
+      flex-direction: column;
+      gap: utils.spacing-unit(2);
 
-    .activities-section-controls__filter-count {
-      color: utils.$color-icon-light;
-      margin-left: utils.spacing-unit(1);
-    }
-
-    .activities-section-controls__sort-button {
-      @include utils.button-no-styles;
-      color: utils.$color-neutral;
-      display: flex;
-      align-items: center;
-      transition: color utils.$transition-duration;
-
-      &:hover {
-        color: utils.$color-distinct;
-      }
-    }
-
-    .activities-section-controls__sort-button-icon {
-      color: utils.$color-distinct;
-      margin-left: 2px;
     }
   }
 </style>

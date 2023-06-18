@@ -30,3 +30,9 @@
   left: 50%;
   transform: translate(-50%, -50%);
 }
+
+@mixin ellipsis {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}

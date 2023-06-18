@@ -1,10 +1,50 @@
 <script setup lang="ts">
-
   import ActivityCardStatusChip from '@/components/ActivityCardStatusChip/ActivityCardStatusChip.vue';
-  import { ActivityStatus } from '@/types/ActivityStatus';
   import PriorityLabel from '@/components/PriorityLabel/PriorityLabel.vue';
-  import { TaskPriority } from '@/types/TaskPriority';
   import { IconName } from '@/types/IconName';
+  import type { Activity } from '@/types/Activity';
+  import { ActivityType } from '@/types/ActivityType';
+  import { computed } from 'vue';
+  import { Utils } from '@/classes/utils';
+
+  interface Props {
+    activity: Activity;
+  }
+
+  const ACTIVITY_TYPE_NAME_MAP: Record<ActivityType, string> = {
+    [ActivityType.TASK]: 'Task',
+    [ActivityType.DEAL]: 'Deal',
+    [ActivityType.TICKET]: 'Ticket',
+    [ActivityType.EMAIL_CAMPAIGN]: 'Email Campaign',
+    [ActivityType.TEXT_MESSAGE_CAMPAIGN]: 'Text Message Campaign',
+    [ActivityType.EMAIL]: 'Email',
+    [ActivityType.CHAT]: 'Chat',
+  };
+
+  const ACTIVITY_TYPE_LABEL_ICON_MAP: Record<ActivityType, IconName> = {
+    [ActivityType.TASK]: IconName.ASSIGNMENT_TURNED_IN,
+    [ActivityType.DEAL]: IconName.PAID,
+    [ActivityType.TICKET]: IconName.MAIL,
+    [ActivityType.EMAIL_CAMPAIGN]: IconName.CAMPAIGN,
+    [ActivityType.TEXT_MESSAGE_CAMPAIGN]: IconName.CAMPAIGN,
+    [ActivityType.EMAIL]: IconName.MAIL,
+    [ActivityType.CHAT]: IconName.FORUM,
+  };
+
+  const props = defineProps<Props>();
+
+  const TEXT_MAX_LENGTH = 75;
+  const text = computed(() => props.activity.text.length > TEXT_MAX_LENGTH
+    ? props.activity.text.slice(0, TEXT_MAX_LENGTH).concat('...')
+    : props.activity.text);
+
+  const date = computed(() => Utils.convertISODate(props.activity.date));
+  const isPastActivity = computed(() => new Date(props.activity.date) < new Date());
+  const isUpcomingActivity = computed(() => {
+    const difference = Utils.differenceInDays(new Date(props.activity.date), new Date());
+
+    return difference >= 0 && difference <= 2;
+  });
 </script>
 
 <template>
@@ -13,7 +53,7 @@
       <div class="activity-card-label__icon-container">
         <QIcon
           class="activity-card-label__icon"
-          :name="IconName.ASSIGNMENT_TURNED_IN"
+          :name="ACTIVITY_TYPE_LABEL_ICON_MAP[props.activity.type]"
         />
       </div>
       <div class="activity-card-label__line" />
@@ -21,26 +61,32 @@
     <div class="card-content activity-card__content">
       <div class="card-content__header">
         <h4 class="card-content__type">
-          Task
+          {{ ACTIVITY_TYPE_NAME_MAP[props.activity.type] }}
         </h4>
-        <span class="card-content__date">
-          19 Jun, 2021 09:35 am
+        <span
+          class="card-content__date"
+          :class="{'card-content__date--past': isPastActivity, 'card-content__date--upcoming': isUpcomingActivity}"
+        >
+          {{ date }}
         </span>
       </div>
       <h4 class="card-content__title">
-        Product demo call with Ruth
+        {{ props.activity.title }}
       </h4>
       <p class="card-content__text">
-        Please call and explain the customer about our product and answer.
+        {{ text }}
       </p>
       <div class="card-content__footer">
         <div class="card-content__info">
-          <ActivityCardStatusChip :status="ActivityStatus.NEED_ATTENTION" />
-          <PriorityLabel :priority="TaskPriority.HIGH" />
+          <ActivityCardStatusChip :status="props.activity.status" />
+          <PriorityLabel
+            v-if="props.activity.priority"
+            :priority="props.activity.priority"
+          />
         </div>
         <QAvatar size="24px">
           <img
-            src="../../assets/images/follower-avatar-1.png"
+            :src="props.activity.contactImage"
             alt="ticket-avatar"
           >
         </QAvatar>
@@ -117,6 +163,14 @@
     .card-content__date {
       @include utils.apply-styles(utils.$text-body-regular);
       color: utils.$color-distinct;
+
+      &.card-content__date--past {
+        color: utils.$color-attention;
+      }
+
+      &.card-content__date--upcoming {
+        color: utils.$color-warning;
+      }
     }
 
     .card-content__title {

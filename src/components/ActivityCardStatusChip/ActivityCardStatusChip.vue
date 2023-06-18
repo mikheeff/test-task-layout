@@ -16,11 +16,11 @@
   };
 
   const CONTACT_STATUS_TEXT_MAP: Record<ActivityStatus, string> = {
-    [ActivityStatus.NEED_ATTENTION]: 'need attention',
-    [ActivityStatus.PROPOSAL_MADE]: 'proposal made',
-    [ActivityStatus.CLOSED]: 'closed',
-    [ActivityStatus.CLICKED]: 'clicked',
-    [ActivityStatus.RESPONDED]: 'responded',
+    [ActivityStatus.NEED_ATTENTION]: 'Need attention',
+    [ActivityStatus.PROPOSAL_MADE]: 'Proposal made',
+    [ActivityStatus.CLOSED]: 'Closed',
+    [ActivityStatus.CLICKED]: 'Clicked',
+    [ActivityStatus.RESPONDED]: 'Responded',
   };
 
   const props = defineProps<Props>();

@@ -33,7 +33,6 @@ export const MOCKED_CONTACT_DETAILS: ContactDetails = {
     'account',
     'issue',
   ],
-  // should be ISO format
-  createdAt: '29 Jul 2:24 am',
-  updatedAt: '30 Jul 10:24 am',
+  createdAt: '2023-06-18T11:41:19.802Z',
+  updatedAt: '2023-06-18T11:41:19.802Z',
 };

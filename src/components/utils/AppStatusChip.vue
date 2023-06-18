@@ -7,6 +7,7 @@
 
   const APP_STATUS_CHIP_CLASS_MAP: Record<AppStatusChipType, string> = {
     [AppStatusChipType.PURPLE]: 'app-status-chip--purple',
+    [AppStatusChipType.PURPLE_DOT]: 'app-status-chip--purple-dot',
     [AppStatusChipType.GREY]: 'app-status-chip--grey',
     [AppStatusChipType.MINT]: 'app-status-chip--mint',
     [AppStatusChipType.GREEN]: 'app-status-chip--green',
@@ -40,13 +41,45 @@
     &.app-status-chip--purple {
       background-color: utils.$color-purple-light;
       border-color: utils.$color-purple;
-      color: utils.$color-purple-dark
+      color: utils.$color-purple-dark;
     }
 
     &.app-status-chip--green {
       background-color: utils.$color-green-light;
       border-color: utils.$color-green;
-      color: utils.$color-green-dark
+      color: utils.$color-green-dark;
+    }
+
+    &.app-status-chip--purple-dot {
+      padding: utils.spacing-unit(1) 0;
+      text-transform: none;
+      color: utils.$color-distinct;
+      background-color: transparent;
+      border-color: transparent;
+      letter-spacing: 0;
+      @include utils.apply-styles(utils.$text-body-semibold);
+
+      &:before {
+        content: '';
+        height: 8px;
+        width: 8px;
+        border-radius: 50%;
+        background-color: utils.$color-violet;
+
+        margin-right: utils.spacing-unit(2);
+      }
+    }
+
+    &.app-status-chip--grey {
+      background-color: utils.$color-cold-grey-light;
+      border-color: utils.$color-cold-grey;
+      color: utils.$color-cold-grey-dark;
+    }
+
+    &.app-status-chip--mint {
+      background-color: utils.$color-mint-light;
+      border-color: utils.$color-mint;
+      color: utils.$color-mint-dark;
     }
   }
 </style>

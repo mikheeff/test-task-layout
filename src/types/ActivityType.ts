@@ -1,0 +1,9 @@
+export enum ActivityType {
+  TASK = 'TASK',
+  DEAL = 'DEAL',
+  TICKET = 'TICKET',
+  EMAIL_CAMPAIGN = 'EMAIL_CAMPAIGN',
+  TEXT_MESSAGE_CAMPAIGN = 'TEXT_MESSAGE_CAMPAIGN',
+  EMAIL = 'EMAIL',
+  CHAT = 'CHAT',
+}
