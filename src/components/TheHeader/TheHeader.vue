@@ -5,6 +5,7 @@
   import AppInput from '@/components/utils/AppInput.vue';
   import { IconName } from '@/types/IconName';
   import CreateActivityDropdown from '@/components/CreateActivityDropdown/CreateActivityDropdown.vue';
+  import AccountMenu from '@/components/AccountMenu/AccountMenu.vue';
 
   const text = ref('');
 </script>
@@ -40,18 +41,7 @@
           :icon-name="IconName.SETTINGS"
         />
       </div>
-      <AppButton
-        class="header-secondary-actions__profile-button"
-        :type="ButtonType.OUTLINE"
-      >
-        <span class="header-secondary-actions__profile-button-text">TextMagic</span>
-        <QAvatar size="22px">
-          <img
-            src="@/assets/images/profile-avatar.png"
-            alt="profile-avatar"
-          >
-        </QAvatar>
-      </AppButton>
+      <AccountMenu class="header-secondary-actions__profile-button" />
     </div>
   </QHeader>
 </template>
@@ -96,10 +86,6 @@
       align-items: center;
       gap: utils.spacing-unit(1);
       margin-right: utils.spacing-unit(4);
-    }
-
-    .header-secondary-actions__profile-button-text {
-      margin-right: utils.spacing-unit(2);
     }
   }
 </style>

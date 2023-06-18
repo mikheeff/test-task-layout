@@ -9,7 +9,6 @@
 
   .app-list {
     padding: 10px 0;
-    width: 188px;
 
     ::v-deep(.q-separator) {
       background-color: utils.$color-grey-light;

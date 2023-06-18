@@ -21,6 +21,9 @@
     class="app-dropdown app-button"
     :class="classes"
   >
+    <template #label>
+      <slot name="label" />
+    </template>
     <slot />
   </QBtnDropdown>
 </template>

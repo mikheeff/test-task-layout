@@ -12,12 +12,12 @@
     class="create-activity-dropdown"
     label="Create"
     :type="ButtonType.PRIMARY"
+    menu-self="top middle"
   >
     <AppList class="create-activity-dropdown__list">
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.CHAT" />
@@ -30,7 +30,6 @@
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.MAIL" />
@@ -43,7 +42,6 @@
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.PHONE" />
@@ -58,7 +56,6 @@
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.CAMPAIGN" />
@@ -71,7 +68,6 @@
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.ASSIGNMENT_TURNED_IN" />
@@ -84,7 +80,6 @@
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.PAID" />
@@ -99,7 +94,6 @@
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.PERSON" />
@@ -112,7 +106,6 @@
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.DOMAIN" />
@@ -125,7 +118,6 @@
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.GROUP" />
@@ -138,7 +130,6 @@
       <AppMenuItem
         v-close-popup
         clickable
-        @click="onItemClick"
       >
         <AppMenuItemSection avatar>
           <QIcon :name="IconName.PIE_CHART" />
@@ -150,3 +141,11 @@
     </AppList>
   </AppDropdown>
 </template>
+
+<style scoped lang="scss">
+  @use '@/styles/utils/_index.scss' as utils;
+
+  .create-activity-dropdown__list {
+    width: 188px;
+  }
+</style>
