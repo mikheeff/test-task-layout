@@ -6,6 +6,7 @@
   import AppButton from '@/components/utils/AppButton.vue';
 
   import { ref } from 'vue';
+  import { useRootStore } from '@/stores/RootStore';
 
   enum Tab {
     ACTIVITIES = 'ACTIVITIES',
@@ -15,6 +16,8 @@
   }
 
   const selectedTab = ref(Tab.ACTIVITIES);
+
+  const rootStore = useRootStore();
 </script>
 
 <template>
@@ -25,20 +28,20 @@
         size="56px"
       >
         <img
-          src="@/assets/images/user-avatar.png"
+          :src="rootStore.contactDetails.profileImage"
           alt="user-avatar"
         >
       </QAvatar>
       <div class="contact-info__details">
         <h1 class="contact-info__name">
-          Jennifer Crowford
+          {{ rootStore.contactFullName }}
         </h1>
         <a
           class="contact-info__link"
-          href="/"
+          :href="rootStore.contactDetails.orgLink"
           target="_blank"
         >
-          Sunflower Limited
+          {{ rootStore.contactDetails.orgName }}
           <QIcon
             class="contact-info__link-icon"
             :name="IconName.NORTH_EAST"
@@ -75,7 +78,9 @@
         >
           <span class="contact-panel-controls__tab-content">
             Files
-            <span class="contact-panel-controls__tab-counter">8</span>
+            <span class="contact-panel-controls__tab-counter">
+              {{ rootStore.contactDetails.filesAmount }}
+            </span>
           </span>
         </AppTab>
       </AppTabs>

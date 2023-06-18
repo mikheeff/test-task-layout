@@ -40,7 +40,7 @@
         </div>
         <QAvatar size="24px">
           <img
-            src="@/assets/images/ticket-avatar.png"
+            src="../../assets/images/follower-avatar-1.png"
             alt="ticket-avatar"
           >
         </QAvatar>

@@ -7,6 +7,8 @@
   import { ContactStatus } from '@/types/ContactStatus';
   import AppLabel from '@/components/utils/AppLabel.vue';
   import AppAvatarGroup from '@/components/utils/AppAvatarGroup.vue';
+  import { useRootStore } from '@/stores/RootStore';
+  import { ContactDetailsType } from '@/types/ContactDetailsType';
 
   const links = [
     'src/assets/images/assign-avatar.png',
@@ -14,6 +16,13 @@
     'src/assets/images/assign-avatar.png',
     'src/assets/images/assign-avatar.png',
   ];
+
+  const CONTACT_DETAILS_TYPE_LABEL_MAP: Record<ContactDetailsType, string> = {
+    [ContactDetailsType.HOME]: 'Home',
+    [ContactDetailsType.WORK]: 'Work',
+  };
+
+  const rootStore = useRootStore();
 </script>
 
 <template>
@@ -39,11 +48,13 @@
               size="24px"
             >
               <img
-                src="@/assets/images/assign-avatar.png"
+                :src="rootStore.contactDetails.assignToProfileImage"
                 alt="assign-avatar"
               >
             </QAvatar>
-            <span class="">Franklin Strickland</span>
+            <span>
+              {{ rootStore.contactDetails.assignToName }}
+            </span>
           </template>
         </AppContentItem>
         <AppContentItem class="contact-details-panel__content-item">
@@ -51,14 +62,14 @@
             Status
           </template>
           <template #value>
-            <ContactStatusChip :status="ContactStatus.LEAD" />
+            <ContactStatusChip :status="rootStore.contactDetails.status" />
           </template>
         </AppContentItem>
         <AppContentItem class="contact-details-panel__content-item">
           <template #key>
             <span>Email</span>
             <span class="contact-details-panel__content-item-description">
-              (Work)
+              ({{ CONTACT_DETAILS_TYPE_LABEL_MAP[rootStore.contactDetails.emailType] }})
             </span>
           </template>
           <template #value>
@@ -69,11 +80,11 @@
           <template #key>
             <span>Phone</span>
             <span class="contact-details-panel__content-item-description">
-              (Home)
+              ({{ CONTACT_DETAILS_TYPE_LABEL_MAP[rootStore.contactDetails.phoneType] }})
             </span>
           </template>
           <template #value>
-            kenzilaw@textmagic.com
+            {{ rootStore.contactDetails.phone }}
           </template>
         </AppContentItem>
         <AppContentItem class="contact-details-panel__content-item">
@@ -83,58 +94,73 @@
           <template #value>
             <img
               class="contact-details-panel__content-item-image"
-              src="@/assets/images/mastercard.svg"
+              :src="rootStore.contactDetails.orgDetailsImage"
               alt="mastercard"
             >
-            <span>MasterCard</span>
+            <span>{{ rootStore.contactDetails.orgDetailsName }}</span>
           </template>
         </AppContentItem>
-        <AppContentItem class="contact-details-panel__content-item">
+        <AppContentItem
+          v-if="rootStore.contactDetails.lists.length"
+          class="contact-details-panel__content-item"
+        >
           <template #key>
             Lists
           </template>
           <template #value>
             <div class="contact-details-panel__content-item-chips">
-              <AppLabel>
-                Key account
-              </AppLabel>
-              <AppLabel>
-                Important
+              <AppLabel
+                v-for="list in rootStore.contactDetails.lists"
+                :key="list"
+              >
+                {{ list }}
               </AppLabel>
             </div>
           </template>
         </AppContentItem>
-        <AppContentItem class="contact-details-panel__content-item">
+        <AppContentItem
+          v-if="rootStore.contactDetails.segments.length"
+          class="contact-details-panel__content-item"
+        >
           <template #key>
             Segments
           </template>
           <template #value>
             <div class="contact-details-panel__content-item-chips">
-              <AppLabel>
-                Summer client
+              <AppLabel
+                v-for="segment in rootStore.contactDetails.segments"
+                :key="segment"
+              >
+                {{ segment }}
               </AppLabel>
             </div>
           </template>
         </AppContentItem>
-        <AppContentItem class="contact-details-panel__content-item">
+        <AppContentItem
+          v-if="rootStore.contactDetails.followersImages.length"
+          class="contact-details-panel__content-item"
+        >
           <template #key>
             Followers
           </template>
           <template #value>
-            <AppAvatarGroup :links="links" />
+            <AppAvatarGroup :links="rootStore.contactDetails.followersImages" />
           </template>
         </AppContentItem>
-        <AppContentItem class="contact-details-panel__content-item">
+        <AppContentItem
+          v-if="rootStore.contactDetails.tags.length"
+          class="contact-details-panel__content-item"
+        >
           <template #key>
             Tags
           </template>
           <template #value>
             <div class="contact-details-panel__content-item-chips">
-              <AppLabel>
-                account
-              </AppLabel>
-              <AppLabel>
-                issue
+              <AppLabel
+                v-for="tag in rootStore.contactDetails.tags"
+                :key="tag"
+              >
+                {{ tag }}
               </AppLabel>
             </div>
           </template>
@@ -145,10 +171,10 @@
       </div>
       <div class="contact-details-panel__content-footer">
         <div class="contact-details-panel__date">
-          Created: 29 Jul 2:24 am
+          Created: {{ rootStore.contactDetails.createdAt }}
         </div>
         <div class="contact-details-panel__date">
-          Updated: 30 Jul 10:24 am
+          Updated: {{ rootStore.contactDetails.updatedAt }}
         </div>
       </div>
     </div>

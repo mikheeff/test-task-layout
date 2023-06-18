@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { ref } from 'vue';
+  import { computed, ref } from 'vue';
   import AppBreadcrumbs from '@/components/utils/AppBreadcrumbs.vue';
   import ContactControlPanel from '@/components/ContactControlPanel/ContactControlPanel.vue';
   import { IconName } from '@/types/IconName';
@@ -11,15 +11,18 @@
   import ContactDetailsPanel from '@/components/ContactDetailsPanel/ContactDetailsPanel.vue';
   import ActivityCard from '@/components/ActivityCard/ActivityCard.vue';
   import AppChip from '@/components/utils/AppChip.vue';
+  import { useRootStore } from '@/stores/RootStore';
 
   const text = ref('');
+
+  const rootStore = useRootStore();
 </script>
 
 <template>
   <QPage class="contact-page">
     <AppBreadcrumbs
       class="contact-page__breadcrumbs"
-      :routes="['Contacts', 'Jennifer Crowford']"
+      :routes="['Contacts', rootStore.contactFullName]"
     />
     <ContactControlPanel class="contact-page__contact-control-panel" />
     <div class="contact-page-columns">
