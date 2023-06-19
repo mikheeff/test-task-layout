@@ -36,4 +36,5 @@ export enum IconName {
   CREDIT_CARD = 'credit_card',
   HELP = 'help',
   LOGOUT = 'logout',
+  ERROR = 'error',
 }

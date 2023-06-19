@@ -17,8 +17,8 @@
 
   const rootStore = useRootStore();
 
-  const createdAt = Utils.convertISODate(rootStore.contactDetails.createdAt);
-  const updatedAt = Utils.convertISODate(rootStore.contactDetails.updatedAt);
+  const createdAt = Utils.formatISODate(rootStore.contactDetails.createdAt);
+  const updatedAt = Utils.formatISODate(rootStore.contactDetails.updatedAt);
 </script>
 
 <template>

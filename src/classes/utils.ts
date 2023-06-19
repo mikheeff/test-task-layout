@@ -1,7 +1,8 @@
-import differenceInDays from 'date-fns/differenceInDays';
+import isToday from 'date-fns/isToday';
+import isTomorrow from 'date-fns/isTomorrow';
 
 export abstract class Utils {
-  static convertISODate(isoDate: string) {
+  static formatISODate(isoDate: string) {
     const date = new Date(isoDate);
     const options: Intl.DateTimeFormatOptions = { year: 'numeric', month: 'short', day: 'numeric' };
     const formattedDate = date.toLocaleDateString('en-US', options);
@@ -10,5 +11,12 @@ export abstract class Utils {
     return `${formattedDate} ${formattedTime} ${period}`;
   }
 
-  static differenceInDays = differenceInDays;
+  static getTimeFromISODate(isoDate: string) {
+    const date = new Date(isoDate);
+    return date.toLocaleTimeString(['en-US'], { hour: '2-digit', minute: '2-digit' });
+  }
+
+  static isToday = isToday;
+
+  static isTomorrow = isTomorrow;
 }

@@ -11,7 +11,7 @@ export const MOCKED_ACTIVITIES_LIST: Activity[] = [
     text: 'Please call and explain the customer about our product and answer.',
     status: ActivityStatus.NEED_ATTENTION,
     priority: TaskPriority.URGENT,
-    date: '2023-06-20T11:41:19.802Z',
+    date: '2023-06-20T11:00:19.802Z',
     contactImage: 'src/assets/images/follower-avatar-1.png'
   },
   {
@@ -21,7 +21,7 @@ export const MOCKED_ACTIVITIES_LIST: Activity[] = [
     text: 'The company has increased the usage of our services and grew the number of lorem ipsum dolor lorem ipsum.',
     status: ActivityStatus.PROPOSAL_MADE,
     priority: null,
-    date: '2023-06-19T11:41:19.802Z',
+    date: '2023-06-19T17:30:19.802Z',
     contactImage: 'src/assets/images/follower-avatar-2.png'
   },
   {
@@ -32,7 +32,7 @@ export const MOCKED_ACTIVITIES_LIST: Activity[] = [
       ' lorem ipsum lorem ipsum dolor lorem ipsum.',
     status: ActivityStatus.CLOSED,
     priority: TaskPriority.LOW,
-    date: '2023-07-13T11:41:19.802Z',
+    date: '2023-07-21T11:00:00.802Z',
     contactImage: 'src/assets/images/follower-avatar-3.png'
   },
   {
@@ -83,7 +83,7 @@ export const MOCKED_ACTIVITIES_LIST: Activity[] = [
     text: 'Please call and explain the customer about our product and answer.',
     status: ActivityStatus.NEED_ATTENTION,
     priority: TaskPriority.URGENT,
-    date: '2023-05-11T11:41:19.802Z',
+    date: '2023-06-18T11:00:00.802Z',
     contactImage: 'src/assets/images/follower-avatar-1.png'
   },
   {

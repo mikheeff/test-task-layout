@@ -6,6 +6,7 @@
   import { ActivityType } from '@/types/ActivityType';
   import { computed } from 'vue';
   import { Utils } from '@/classes/utils';
+  import ActivityCardReminder from '@/components/ActivityCardReminder/ActivityCardReminder.vue';
 
   interface Props {
     activity: Activity;
@@ -38,13 +39,7 @@
     ? props.activity.text.slice(0, TEXT_MAX_LENGTH).concat('...')
     : props.activity.text);
 
-  const date = computed(() => Utils.convertISODate(props.activity.date));
-  const isPastActivity = computed(() => new Date(props.activity.date) < new Date());
-  const isUpcomingActivity = computed(() => {
-    const difference = Utils.differenceInDays(new Date(props.activity.date), new Date());
-
-    return difference >= 0 && difference <= 2;
-  });
+  const date = computed(() => Utils.formatISODate(props.activity.date));
 </script>
 
 <template>
@@ -63,10 +58,7 @@
         <h4 class="card-content__type">
           {{ ACTIVITY_TYPE_NAME_MAP[props.activity.type] }}
         </h4>
-        <span
-          class="card-content__date"
-          :class="{ 'card-content__date--past': isPastActivity, 'card-content__date--upcoming': isUpcomingActivity }"
-        >
+        <span class="card-content__date">
           {{ date }}
         </span>
       </div>
@@ -83,6 +75,7 @@
             v-if="props.activity.priority"
             :priority="props.activity.priority"
           />
+          <ActivityCardReminder :date="props.activity.date" />
         </div>
         <QAvatar size="24px">
           <img
@@ -163,14 +156,6 @@
     .card-content__date {
       @include utils.apply-styles(utils.$text-body-regular);
       color: utils.$color-distinct;
-
-      &.card-content__date--past {
-        color: utils.$color-attention;
-      }
-
-      &.card-content__date--upcoming {
-        color: utils.$color-warning;
-      }
     }
 
     .card-content__title {
